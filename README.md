@@ -1,4 +1,4 @@
-# taro-keyboard-car
+# taro-time-countdown
 
 ## 介绍
 
@@ -7,7 +7,7 @@
 
 ## 使用
 
-npm i taro-keyboard-car
+npm i taro-time-countdown
 
 在运行本项目前，确保系统已经全局安装了taro，
 
@@ -18,9 +18,9 @@ npm i taro-keyboard-car
 import ZyCountdown from "countdown";
 
 <ZyCountdown
-  isShowHour={false}
-  format={{hours: "时", minutes: "分", seconds: "秒"}}
-  seconds={orderInfo.remainSeconds}
+  isShowDay={true}
+  format={{day: "天",hours: "时", minutes: "分", seconds: "秒"}}
+  seconds={666}
 />
 
 
