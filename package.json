@@ -1,6 +1,6 @@
 {
   "name": "taro-time-countdown",
-  "version": "1.0.1",
+  "version": "1.0.4",
   "description": "倒计时控件",
   "main": "index.js",
   "scripts": {
