@@ -2,13 +2,13 @@ import Taro from "@tarojs/taro";
 import PropTypes from "prop-types";
 import { View } from "@tarojs/components";
 import classNames from "classnames";
-import AtCountdownItem from "./item";
+import ZyCountdownItem from "./item";
 import "./index.less";
 
 const toSeconds = (day, hours, minutes, seconds) =>
   day * 60 * 60 * 24 + hours * 60 * 60 + minutes * 60 + seconds;
 
-export default class AtCountdown extends Taro.Component {
+export default class ZyCountdown extends Taro.Component {
   constructor() {
     super(...arguments);
     const { day, hours, minutes, seconds } = this.props;
@@ -98,7 +98,6 @@ export default class AtCountdown extends Taro.Component {
       format,
       isShowDay,
       isShowHours,
-      isCard
     } = this.props;
     const { _day, _hours, _minutes, _seconds } = this.state;
 
@@ -107,27 +106,25 @@ export default class AtCountdown extends Taro.Component {
         className={classNames(
           {
             "cuu-countdown": true,
-            "cuu-countdown--card": isCard
           },
           className
         )}
         style={customStyle}
       >
-        {isShowDay && <AtCountdownItem num={_day} separator={format.day} />}
-        {isShowHours && (
-          <AtCountdownItem num={_hours} separator={format.hours} />
+        {isShowDay && <ZyCountdownItem num={_day} separator={format.day} />}
+        {(isShowDay||isShowHours) && (
+          <ZyCountdownItem num={_hours} separator={format.hours} />
         )}
-        <AtCountdownItem num={_minutes} separator={format.minutes} />
-        <AtCountdownItem num={_seconds} separator={format.seconds} />
+        <ZyCountdownItem num={_minutes} separator={format.minutes} />
+        <ZyCountdownItem num={_seconds} separator={format.seconds} />
       </View>
     );
   }
 }
 
-AtCountdown.defaultProps = {
+ZyCountdown.defaultProps = {
   customStyle: "",
   className: "",
-  isCard: false,
   isShowDay: false,
   isShowHours: false,
   format: {
@@ -143,10 +140,9 @@ AtCountdown.defaultProps = {
   onTimeUp() {}
 };
 
-AtCountdown.propTypes = {
+ZyCountdown.propTypes = {
   customStyle: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
   className: PropTypes.oneOfType([PropTypes.array, PropTypes.string]),
-  isCard: PropTypes.bool,
   isShowDay: PropTypes.bool,
   isShowHours: PropTypes.bool,
   format: PropTypes.object,
